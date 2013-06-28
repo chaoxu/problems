@@ -1,0 +1,9 @@
+_site/
+_cache/
+*.hi
+*.o
+site
+files/
+.DS_Store
+drafts/
+mathdoc.hs
