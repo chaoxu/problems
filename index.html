@@ -1,5 +1,6 @@
 <!doctype html>
-
+<html>
+<head>
 <meta charset="utf-8">
 <title>Optimization Problems</title>
 <script>
@@ -14,10 +15,10 @@ function set_description(s, edge){
 }
 </script>
 <style>
-body {
+body, html {
   margin:0;
   background-color:#fdfdfd;
-  overflow: hidden;
+  overflow: auto;
   height: 100%;
 }
 #left,#right {
@@ -60,10 +61,15 @@ rect {
 .error {
   color: red;
 }
+svg {
+  width:100%;
+  height:100%;
+}
 </style>
 <script src="http://d3js.org/d3.v2.min.js"></script>
 <script src="../dagre.js"></script>
-
+</head>
+<body>
 <div id="left">
 <svg>
   <defs>
@@ -80,6 +86,7 @@ rect {
     </marker>
   </defs>
 </svg>
+
 <script>
 var client = new XMLHttpRequest();
 client.open('GET', '/relation.dot');
@@ -87,10 +94,13 @@ client.onreadystatechange = function() {
   tryDraw(client.responseText);
 }
 client.send();
-
 </script>
 </div>
 
+<div id="right">
+<iframe id="description" src="/problems/home.html"></iframe>
+</div>
+</body>
 <script>
 var nodeCache = {},
     edgeCache = {};
@@ -305,7 +315,4 @@ function update() {
     });
 }
 </script>
-
-<div id="right">
-<iframe id="description" src="/problems/home.html"></iframe>
-</div>
+</html>
