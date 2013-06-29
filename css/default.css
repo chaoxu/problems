@@ -2,7 +2,6 @@
 ----------------------------------------------- */
 html, body {
     padding: 0;
-    display: table;
     margin: auto;
 }
 
@@ -12,56 +11,20 @@ body {
     font-family: MathJax_Main, Verdana, Helvetica, Arial, sans-serif;
     font-size: 100%;
     line-height: 120%;
-    margin: auto;
     background-color: #fff;
-    min-width: 840px;
+    text-align: left;
+    width:100%;
 }
 .stix body {
     font-family: STIXGeneral, MathJax_Main, Verdana, Helvetica, Arial, sans-serif;
 }
 
 header, article {
-    margin-bottom: 2em;
     padding-left: 20px;
     padding-right: 20px;
 }
-
 footer, #theme-info, #footer-include {
     clear: both;
-}
-article {
-    width:840px;
-}
-/* Positioning
------------------------------------------------ */
-body {
-    text-align: left;
-    margin: 0 auto 0 0;
-}
-/* Navigation
------------------------------------------------ */
-nav {
-    margin: 20px 0 0 0;
-    border-bottom: 1px solid #ccc;
-    position: relative;
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    display: block;
-    margin: 0 15px 0 0;
-    padding: 3px 0 3px 0;
-    float: left;
-    position: relative;
-    border: 0;
-}
-nav ul li a {
-    border: 0;
 }
 /* HTML element control
 ----------------------------------------------- */
@@ -149,7 +112,7 @@ h3 code {
 }
 
 ul, ol {
-    margin: 0 0 1em 15px;
+    margin: 0 0 0 15px;
     padding: 0;
 }
 ul {
@@ -157,7 +120,7 @@ ul {
 }
 
 li {
-    line-height: 1.5em;
+    line-height: 1em;
 }
 ul li {
     margin: 0 0 0.25em 0.35em;
@@ -176,34 +139,22 @@ img {
 
 /* Headers
 ----------------------------------------------- */
-#blog-title {
-    font-size: 2.5em;
-    font-weight: normal;
-    height: 60px;
-    margin: 0;
-    border: none;
-    padding: 0;
-    line-height: 200%;
-    text-align:center;
-}
-/* The headers tries to emulate the format of
- Oxfod Lecture Series in Mathematics and Its Applications */
-h1 {
+.articleTitle {
+    text-align: center;
     font-size: 2.0em;
     line-height: 1.2em;
-    border-bottom: 1px solid #000;
 }
-h2 {
+h1 {
     font-size: 1.15em;
-    line-height: 3em;
     font-weight: bold;
 }
-h3 {
-    font-size: 1.2em;
+h2 {
+    font-size: 1em;
     font-style: italic;
+    text-decoration:underline;
     font-weight: normal;
 }
-h4 {
+h3 {
     font-size: 1.1em;
     font-style: italic;
     font-weight: bold;

@@ -1,0 +1,45 @@
+digraph {
+  min_cost_multi_commodity_circulation [label="minimum cost multi-commodity"];
+  min_cost_circulation [label="minimum cost circulation"];
+  circulation [label="circulation"];
+  max_flow [label="maximum flow"];
+  weighted_bipartite_matching [label="weighted bipartite matching"];
+  bipartite_matching [label="bipartite matching"];
+  min_cost_max_flow [label="minimum cost maximum flow"];
+  shortest_path_nonneg_weight [label="non-negative weighted shortest path"]
+  shortest_path_weight [label="weighted shortest path"];
+  shortest_path [label="shortest path"];
+  min_cost_max_bipartite_matching [label="minimum cost maximum weight bipartite matching"];
+  submodular_flow [label="submodular flow"];
+  polymatroid_intersection [label="polymatroid intersection"];
+  linear_programming [label="linear programming"];
+  graph_orientation [label="graph orientation"];
+  all_pairs_shortest_path [label="all pairs shortest path"];
+  min_cost_flow [label="minimum cost flow"];
+  
+  min_cost_multi_commodity_circulation -> min_cost_circulation
+  min_cost_multi_commodity_circulation -> all_pairs_shortest_path
+  min_cost_circulation -> circulation
+  circulation -> max_flow
+  max_flow -> weighted_bipartite_matching
+  weighted_bipartite_matching -> bipartite_matching
+  min_cost_max_flow -> max_flow;
+  min_cost_max_flow -> min_cost_max_bipartite_matching;
+  min_cost_max_bipartite_matching -> weighted_bipartite_matching;
+  min_cost_circulation -> min_cost_flow;
+  min_cost_flow -> shortest_path_weight;
+  submodular_flow -> min_cost_circulation;
+  submodular_flow -> polymatroid_intersection;
+  linear_programming -> submodular_flow;
+  linear_programming -> min_cost_multi_commodity_circulation;
+  submodular_flow -> graph_orientation;
+  
+  shortest_path_weight -> shortest_path_nonneg_weight;
+  shortest_path_nonneg_weight -> shortest_path;
+}
+
+
+
+  
+  
+  

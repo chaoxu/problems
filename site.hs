@@ -33,22 +33,6 @@ main = hakyll $ do
     match "problems/*" $ version "raw" $ do
         route   idRoute
         compile copyFileCompiler
-    
-    create ["index.html"] $ do
-        route idRoute
-        compile $ do
-            let archiveCtx =
-                    field "posts" (\_ -> postList) `mappend`
-                    constField "tags" "" `mappend`
-                    constField "source" "" `mappend`
-                    constField "title" "List"              `mappend`
-                    titleField  "htmltitle"                `mappend`
-                    defaultContext
-
-            makeItem ""
-                >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
-                >>= loadAndApplyTemplate "templates/default.html" archiveCtx
-                >>= relativizeUrls
 
     match "templates/*" $ compile templateCompiler
 
@@ -61,7 +45,12 @@ idPages = ["favicon.ico",
            "redirects.site44.txt",
            "timeline.html",
            "mathjax_conf.js",
-           "mimetypes.site44.txt"]
+           "mimetypes.site44.txt",
+           "relation.dot",
+           "index.html",
+           "home.html",
+           "404.html",
+           "dagre.js"]
 ----
 htmlTitleField :: Context String
 htmlTitleField = Context $ \k i -> 
@@ -93,10 +82,3 @@ postCtx =
     defaultContext        `mappend`
     constField "tags"  "" `mappend`
     missingField
---------------------------------------------------------------------------------
-postList :: Compiler String
-postList = do
-    posts   <- loadAll ("problems/*" .&&. hasNoVersion)
-    itemTpl <- loadBody "templates/post-item.html"
-    list    <- applyTemplateList itemTpl postCtx posts
-    return list
