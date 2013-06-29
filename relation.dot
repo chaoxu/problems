@@ -16,7 +16,9 @@ digraph {
   graph_orientation [label="graph orientation"];
   all_pairs_shortest_path [label="all pairs shortest path"];
   min_cost_flow [label="minimum cost flow"];
-  
+  min_cost_trans [label="minimum cost transshipment"];
+
+  min_cost_trans -> min_cost_circulation
   min_cost_multi_commodity_circulation -> min_cost_circulation
   min_cost_multi_commodity_circulation -> all_pairs_shortest_path
   min_cost_circulation -> circulation
