@@ -29,10 +29,16 @@ main = hakyll $ do
         compile $ mathCompiler
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
-    -- raw pages
+    -- edges
+    match "edges/*.md" $ do
+        route $ setExtension "html"
+        compile $ mathCompiler
+            >>= loadAndApplyTemplate "templates/edge.html" postCtx
+            >>= relativizeUrls
+ {-   -- raw pages
     match "problems/*" $ version "raw" $ do
         route   idRoute
-        compile copyFileCompiler
+        compile copyFileCompiler -}
 
     match "templates/*" $ compile templateCompiler
 
@@ -50,7 +56,8 @@ idPages = ["favicon.ico",
            "index.html",
            "home.html",
            "404.html",
-           "dagre.js"]
+           "dagre.js",
+           "d3.v2.min.js"]
 ----
 htmlTitleField :: Context String
 htmlTitleField = Context $ \k i -> 

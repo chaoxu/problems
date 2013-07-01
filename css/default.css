@@ -22,6 +22,7 @@ body {
 header, article {
     padding-left: 20px;
     padding-right: 20px;
+    background-color: #fff;
 }
 footer, #theme-info, #footer-include {
     clear: both;

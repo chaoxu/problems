@@ -5,13 +5,17 @@
 <title>Optimization Problems</title>
 <script>
 function set_description(s, edge){
+  document.getElementById('description').src = deslink(s, edge);
+}
+function deslink(s, edge){
   s = s.replace(/_/g,'-');
   if(!edge){
-    document.getElementById('description').src = "/problems/"+s+".html";
+    s = "/problems/"+s+".html";
   } else {
     s = s.substring(0, s.length - 2)
-    document.getElementById('description').src = "/problems/trans-"+s+".html";
+    s = "/edges/"+s+".html";
   }
+  return s;
 }
 </script>
 <style>
@@ -27,6 +31,15 @@ body, html {
     overflow: hidden;
     height: 100%;
  }
+ iframe {
+    border-style:solid;
+    border-width:1px;
+ }
+ /*#edgeDescription {
+   position: absolute;
+   z-index: 10;
+   visibility: hidden;
+ }*/
  #description {
     float:left;
     width:100%;
@@ -66,8 +79,8 @@ svg {
   height:100%;
 }
 </style>
-<script src="http://d3js.org/d3.v2.min.js"></script>
-<script src="../dagre.js"></script>
+<script src="/d3.v2.min.js"></script>
+<script src="/dagre.js"></script>
 </head>
 <body>
 <div id="left">
@@ -87,48 +100,37 @@ svg {
   </defs>
 </svg>
 
-<script>
-var client = new XMLHttpRequest();
-client.open('GET', '/relation.dot');
-client.onreadystatechange = function() {
-  tryDraw(client.responseText);
-}
-client.send();
-</script>
-</div>
 
-<div id="right">
-<iframe id="description" src="/problems/home.html"></iframe>
-</div>
-</body>
-<script>
-var nodeCache = {},
-    edgeCache = {};
-function tryDraw(inputGraph) {
-  var result;
-      result = dagre.dot.toObjects(inputGraph);
-      result.edges.forEach(function(e) { if (!e.label) { e.label = ""; } });
-
-    if (result) {
-      result.nodes.forEach(function(node) {
-        node.inEdges = [];
-        node.outEdges = [];
-      });
-      result.edges.forEach(function(edge) {
-        edge.source.outEdges.push(edge);
-        edge.target.inEdges.push(edge);
-      });
-
-      draw(result.nodes, result.edges);
-    }
-}
-</script>
 
 <script>
 var svg = d3.select("svg");
 var svgGroup = svg.append("g");
 
 var nodes, edges;
+function strEndsWith(str, suffix) {
+    return str.match(suffix+"$")==suffix;
+}
+
+function autoResize(element){
+    var newheight;
+    var newwidth;
+    console.log(element);
+    console.log(element.height);
+    console.log(element.width);
+    console.log(element.contentWindow.document.body.scrollHeight);
+    console.log(element.contentWindow.document.body.scrollWidth);
+    
+    newheight = element.contentWindow.document.body.scrollHeight;
+    newwidth = element.contentWindow.document.body.scrollWidth;
+    
+    console.log(element.contentDocument.body);
+    element.height= (newheight) + "px";
+    element.width= (newwidth) + "px";
+
+    console.log(newheight);
+    console.log(newwidth);
+}
+
 function draw(nodeData, edgeData) {
   // D3 doesn't appear to like rebinding with the same id but a new object,
   // so for now we remove everything.
@@ -180,9 +182,33 @@ function draw(nodeData, edgeData) {
     .edges(edgeData)
     .debugLevel(2)
     .run();
+  
+  //var tooltip = document.getElementById("edgeDescription");
+  var tooltip = d3.select("body")
+    .append("iframe")
+    .style("position", "absolute")
+    .style("z-index", "10")
+    .style("visibility", "hidden")
+    .property("id", "edgeDescription")
 
+ //   .style("background-color", "white");
+
+
+ // var tooltipd3 = d3.select("edgeDescription");
+  console.log(tooltip);
   nodes.on('click', function(d){set_description(d.id)});
   edges.on('click', function(d){set_description(d.id, true)});
+  edges.on('mouseover', function(d){
+                                    if(strEndsWith(tooltip.property("src"),deslink(d.id, true))){
+                                      tooltip.style("visibility", "visible")
+                                    }else{
+                                      tooltip.property("src",deslink(d.id, true));
+                                      tooltip.style("visibility", "visible");
+                                    }
+                                  })
+  edges.on("mousemove", function(){return tooltip.style("top",
+    (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
+  edges.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
   // Ensure that we have at least two points between source and target
   edges.each(function(d) { ensureTwoControlPoints(d);});
 
@@ -315,4 +341,42 @@ function update() {
     });
 }
 </script>
+
+<script>
+var nodeCache = {},
+    edgeCache = {};
+function tryDraw(inputGraph) {
+  var result;
+      result = dagre.dot.toObjects(inputGraph);
+      result.edges.forEach(function(e) { if (!e.label) { e.label = ""; } });
+
+    if (result) {
+      result.nodes.forEach(function(node) {
+        node.inEdges = [];
+        node.outEdges = [];
+      });
+      result.edges.forEach(function(edge) {
+        edge.source.outEdges.push(edge);
+        edge.target.inEdges.push(edge);
+      });
+
+      draw(result.nodes, result.edges);
+    }
+}
+</script>
+
+<script>
+var client = new XMLHttpRequest();
+client.open('GET', '/relation.dot');
+client.onreadystatechange = function() {
+  tryDraw(client.responseText);
+}
+client.send();
+</script>
+</div>
+
+<div id="right">
+<iframe id="description" src="/problems/home.html"></iframe>
+</div>
+</body>
 </html>
