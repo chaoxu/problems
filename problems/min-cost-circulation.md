@@ -13,4 +13,3 @@ Let $D=(V,A)$. $l,u: A\to \R^+$, $c:A\to \R$. We want to find a a flow function 
 \end{align}
 
 # Algorithms
-

@@ -1,4 +1,5 @@
 digraph {
+  // optimization problems
   min_cost_multi_commodity_circulation [label="minimum cost multi-commodity"];
   min_cost_circulation [label="minimum cost circulation"];
   circulation [label="circulation"];
@@ -35,9 +36,17 @@ digraph {
   linear_programming -> submodular_flow;
   linear_programming -> min_cost_multi_commodity_circulation;
   submodular_flow -> graph_orientation;
-  
   shortest_path_weight -> shortest_path_nonneg_weight;
   shortest_path_nonneg_weight -> shortest_path;
+
+  // String matching problems
+  exact_string_matching [label="exact string matching"];
+  exact_string_matching_with_dont_cares [label="exact string matching with don't cares"];
+  regular_expression_matching [label="regular expression matching"];
+  regular_expression_substring_matching [label="regular expression substring_matching"];
+  regular_expression_substring_matching -> exact_string_matching_with_dont_cares;
+  regular_expression_substring_matching -> regular_expression_matching;
+  exact_string_matching_with_dont_cares -> exact_string_matching;
 }
 
 
