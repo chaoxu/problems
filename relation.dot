@@ -1,8 +1,6 @@
 digraph {
   // optimization problems
-  min_cost_multi_commodity_circulation [label="minimum cost multi-commodity"];
-  min_cost_circulation [label="minimum cost circulation"];
-  circulation [label="circulation"];
+  min_cost_multi_commodity_transshipment [label="minimum cost multi-commodity transshipment"];
   max_flow [label="maximum flow"];
   weighted_bipartite_matching [label="weighted bipartite matching"];
   bipartite_matching [label="bipartite matching"];
@@ -11,42 +9,98 @@ digraph {
   shortest_path_weight [label="weighted shortest path"];
   shortest_path [label="shortest path"];
   min_cost_max_bipartite_matching [label="minimum cost maximum weight bipartite matching"];
+  weighted_matching [label="maximum weight matching"];
+  min_cost_perfect_matching [label="minimum cost perfect matching"];
+
   submodular_flow [label="submodular flow"];
   polymatroid_intersection [label="polymatroid intersection"];
   linear_programming [label="linear programming"];
-  graph_orientation [label="graph orientation"];
   all_pairs_shortest_path [label="all pairs shortest path"];
   min_cost_flow [label="minimum cost flow"];
   min_cost_trans [label="minimum cost transshipment"];
-
-  min_cost_trans -> min_cost_circulation
-  min_cost_multi_commodity_circulation -> min_cost_circulation
-  min_cost_multi_commodity_circulation -> all_pairs_shortest_path
-  min_cost_circulation -> circulation
-  circulation -> max_flow
-  max_flow -> weighted_bipartite_matching
-  weighted_bipartite_matching -> bipartite_matching
+  degree_constrained_orientation [label="degree constrained orientation"];
+  max_flow_int [label="maximum flow with integer weights"];
+  submodular_min [label="submodular minimization"];
+  symmetric_submodular_min [label="symmetric submodular minimization"];
+  
+  submodular_flow -> min_cost_max_flow;
+  submodular_min -> symmetric_submodular_min;
+  submodular_min -> directed_min_cut;
+  symmetric_submodular_min -> min_cut;
+  min_cost_multi_commodity_transshipment -> min_cost_trans;
+  min_cost_multi_commodity_transshipment -> all_pairs_shortest_path;
+  min_cost_trans -> max_flow;
+  max_flow -> max_flow_int;
+  max_flow -> weighted_bipartite_matching;
+  weighted_bipartite_matching -> bipartite_matching;
+  max_flow_int -> bipartite_matching;
   min_cost_max_flow -> max_flow;
   min_cost_max_flow -> min_cost_max_bipartite_matching;
   min_cost_max_bipartite_matching -> weighted_bipartite_matching;
-  min_cost_circulation -> min_cost_flow;
+  min_cost_trans  -> min_cost_flow;
   min_cost_flow -> shortest_path_weight;
-  submodular_flow -> min_cost_circulation;
   submodular_flow -> polymatroid_intersection;
   linear_programming -> submodular_flow;
-  linear_programming -> min_cost_multi_commodity_circulation;
-  submodular_flow -> graph_orientation;
+  linear_programming -> min_cost_multi_commodity_transshipment;
   shortest_path_weight -> shortest_path_nonneg_weight;
   shortest_path_nonneg_weight -> shortest_path;
+  max_flow_int -> degree_constrained_orientation;
+  degree_constrained_orientation -> bipartite_matching;
+  degree_constrained_orientation -> eulerian_orientation;
+  
+  min_cost_perfect_matching -> weighted_matching;
+  weighted_matching -> weighted_bipartite_matching;
+  
+  // matroids
+  polymatroid_intersection [label="polymatroid intersection"];
+  polymatroid_optimization [label="polymatroid optimization"];
+  minimum_spanning_arborescence [label="minimum spanning arborescence"];
+  matroid_optimization [label="matroid optimization"];
+  matroid_intersection [label="matriod intersection"];
+  minimum_spanning_tree [label="minimum spanning tree"];
+  matriod_partition [label="matriod partition"];
+  forest_decomposition [label="forest decomposition"];
+  minimum_spanning_arborescence [label="minimum spanning arborescence"];
+  rooted_k_edge_connection [label="rooted $k$-edge-connection"];
+  
+  polymatroid_intersection -> polymatroid_optimization;
+  polymatroid_intersection -> matroid_intersection;
+  polymatroid_optimization -> matroid_optimization;
+  matroid_intersection -> matroid_optimization -> minimum_spanning_tree; 
+  matroid_intersection -> weighted_bipartite_matching;
+  matroid_intersection -> rooted_k_edge_connection;
+  matriod_intersection -> matriod_union_independence_oracle;
+  matriod_union_independence_oracle -> matriod_partition -> forest_decomposition;
+  rooted_k_edge_connection -> minimum_spanning_arborescence;
+  minimum_spanning_arborescence -> minimum_spanning_tree;
+
+  eulerian_orientation [label="eulerian orientation"];
+  directed_min_cut [label="global directed minimum cut"];
+  min_cut [label="global minimum cut"];
+  edge_connectivity [label="edge connectivity"];
+  directed_min_cut -> min_cut;
+  min_cut -> edge_connectivity;
 
   // String matching problems
   exact_string_matching [label="exact string matching"];
+  n_dimensional_pattern_matching [label="n dimensional pattern matching"];
   exact_string_matching_with_dont_cares [label="exact string matching with don't cares"];
   regular_expression_matching [label="regular expression matching"];
-  regular_expression_substring_matching [label="regular expression substring_matching"];
+  regular_expression_substring_matching [label="regular expression substring matching"];
   regular_expression_substring_matching -> exact_string_matching_with_dont_cares;
   regular_expression_substring_matching -> regular_expression_matching;
   exact_string_matching_with_dont_cares -> exact_string_matching;
+  n_dimensional_pattern_matching -> exact_string_matching;
+
+  // DP
+  generic_shortest_path_superior [label="generic shortest path superior"];
+  generic_shortest_path_dag [label="generic shortest path for DAGs"];
+  count_paths_dag [label="number of paths in a DAG"];
+  longest_path_dag [label="longest path in a DAG"];
+  
+  generic_shortest_path_superior -> shortest_path_nonneg_weight;
+  generic_shortest_path_dag -> count_paths_dag;
+  generic_shortest_path_dag -> longest_path_dag;
 }
 
 

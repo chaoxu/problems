@@ -4,7 +4,7 @@ tags: Graph
 ---
 
 # Problem
-Let $G=(V,E)$ be a simple graph, find a shortest path between $s,t\in V$. 
+Let $D=(V,A)$ be a simple directed graph, find a shortest path between $s,t\in V$. 
 
 # Algorithms
 

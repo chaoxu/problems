@@ -57,7 +57,9 @@ idPages = ["favicon.ico",
            "home.html",
            "404.html",
            "dagre.js",
-           "d3.v2.min.js"]
+           "d3.v2.min.js",
+           "map.js",
+           "map.html"]
 ----
 htmlTitleField :: Context String
 htmlTitleField = Context $ \k i -> 

@@ -1,0 +1,1 @@
+Let the semiring be $(\mathbb{R}\cup \{-\infty\},\max,+,-\infty,0)$.

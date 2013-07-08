@@ -1,0 +1,1 @@
+Set the ordered semigroup to be $\mathbb{N}$, and $w=1$.

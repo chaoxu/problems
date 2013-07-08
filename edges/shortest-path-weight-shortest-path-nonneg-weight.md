@@ -1,0 +1,1 @@
+Restrict $w$ so it doesn't map to negative elements.
