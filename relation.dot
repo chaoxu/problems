@@ -1,4 +1,8 @@
 digraph {
+  // weakly polynomial
+  convex_programming -> linear_programming;
+  lp_type -> linear_programming;
+  violator_spaces -> lp_type;
   // optimization problems
   min_cost_multi_commodity_transshipment [label="minimum cost multi-commodity transshipment"];
   max_flow [label="maximum flow"];
@@ -23,6 +27,9 @@ digraph {
   submodular_min [label="submodular minimization"];
   symmetric_submodular_min [label="symmetric submodular minimization"];
   
+  submodular_flow -> degree_constrained_k_edge_connected_orientation;
+  degree_constrained_k_edge_connected_orientation -> k_edge_connected_orientation;
+  degree_constrained_k_edge_connected_orientation -> degree_constrained_orientation;
   submodular_flow -> min_cost_max_flow;
   submodular_min -> symmetric_submodular_min;
   submodular_min -> directed_min_cut;
@@ -47,10 +54,11 @@ digraph {
   max_flow_int -> degree_constrained_orientation;
   degree_constrained_orientation -> bipartite_matching;
   degree_constrained_orientation -> eulerian_orientation;
-  
   min_cost_perfect_matching -> weighted_matching;
   weighted_matching -> weighted_bipartite_matching;
   
+  min_cost_flow -> shortest_s_t_cycle;
+    
   // matroids
   polymatroid_intersection [label="polymatroid intersection"];
   polymatroid_optimization [label="polymatroid optimization"];
@@ -71,6 +79,7 @@ digraph {
   matroid_intersection -> rooted_k_edge_connection;
   matriod_intersection -> matriod_union_independence_oracle;
   matriod_union_independence_oracle -> matriod_partition -> forest_decomposition;
+  matriod_partition->maximum_density_subgraph;
   rooted_k_edge_connection -> minimum_spanning_arborescence;
   minimum_spanning_arborescence -> minimum_spanning_tree;
 
@@ -98,13 +107,42 @@ digraph {
   count_paths_dag [label="number of paths in a DAG"];
   longest_path_dag [label="longest path in a DAG"];
   
+  widest_path [label="widest path problem"];
+  undirected_widest_path [label="undirected widest path problem"];
+  
+  generic_shortest_path_superior -> widest_path;
+  widest_path -> undirected_widest_path;
+  //all_pairs_widest_path;
+  minimum_spanning_tree -> undirected_widest_path;
   generic_shortest_path_superior -> shortest_path_nonneg_weight;
   generic_shortest_path_dag -> count_paths_dag;
   generic_shortest_path_dag -> longest_path_dag;
+  
+  // Sequence Alignment
+  cyclic_alignment -> global_alignment;
+  cyclic_alignment -> cyclic_longest_common_subsequence;
+  alignment_boundary -> global_alignment;
+  local_alignment;
+  tree_edit_distance -> levenshtein_distance;
+  global_alignment -> levenshtein_distance -> longest_common_subsequence;
+  alignment_boundary -> fitting_alignment;
+  alignment_boundary -> overlapping_alignment -> semiglobal_alignment;
+  fitting_alignment -> exact_string_matching_with_dont_cares;
+  exact_string_matching -> cyclic_string_equivalence;
+  cyclic_longest_common_subsequence -> longest_common_subsequence -> longest_increasing_subsequence
+  longest_common_subsequence -> shortest_common_supersequence;
+  
+  // Done
+  // sequential knapsack
+  
+  // Todo
+  // Modular decomposition http://en.wikipedia.org/wiki/Modular_decomposition
+  // reconize total unimodularity 
+  // stable matching(bipartite), egalitarian(maximum weight), minimum regret, stable roommate problem.
+  // tree isomorphism
+  // k-cores
+
+  // The Generalized Distributive Law
+  // http://cstheory.stackexchange.com/questions/750/have-any-generalizations-of-maximum-weight-matching-been-studied
+  //longest_alternating_subsequence
 }
-
-
-
-  
-  
-  

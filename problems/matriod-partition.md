@@ -2,6 +2,8 @@
 title: Matriod Partition
 ---
 
+# Problem
+
 Let $M=(E, \mathcal{I}) be a matriod, find $P\subset \mathcal{I}$, 
 
 \begin{align}
