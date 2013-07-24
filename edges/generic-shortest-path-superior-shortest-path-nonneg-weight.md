@@ -1,0 +1,1 @@
+$(\R^+\cup \{\infty\},\min,+,\infty,0)$

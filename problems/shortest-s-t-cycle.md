@@ -1,5 +1,5 @@
 ---
-title: Shortest $s-t$-Cycle
+title: Shortest $s$-$t$-Cycle
 ---
 
 # Problem

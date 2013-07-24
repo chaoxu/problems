@@ -1,0 +1,1 @@
+Set $f=0,g=\infty$.

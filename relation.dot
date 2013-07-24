@@ -2,7 +2,7 @@ digraph {
   // weakly polynomial
   convex_programming -> linear_programming;
   lp_type -> linear_programming;
-  violator_spaces -> lp_type;
+  violator_space -> lp_type;
   // optimization problems
   min_cost_multi_commodity_transshipment [label="minimum cost multi-commodity transshipment"];
   max_flow [label="maximum flow"];
@@ -38,12 +38,10 @@ digraph {
   min_cost_multi_commodity_transshipment -> all_pairs_shortest_path;
   min_cost_trans -> max_flow;
   max_flow -> max_flow_int;
-  max_flow -> weighted_bipartite_matching;
+  min_cost_max_flow -> weighted_bipartite_matching;
   weighted_bipartite_matching -> bipartite_matching;
   max_flow_int -> bipartite_matching;
   min_cost_max_flow -> max_flow;
-  min_cost_max_flow -> min_cost_max_bipartite_matching;
-  min_cost_max_bipartite_matching -> weighted_bipartite_matching;
   min_cost_trans  -> min_cost_flow;
   min_cost_flow -> shortest_path_weight;
   submodular_flow -> polymatroid_intersection;
@@ -58,7 +56,22 @@ digraph {
   weighted_matching -> weighted_bipartite_matching;
   
   min_cost_flow -> shortest_s_t_cycle;
-    
+  
+  // scheduling
+  //single_machine_total_weighted_completion_time; // greedy
+   //Minimizing Makespan with Preemptions on N machines, polytime
+   //Qm | prmp | Cmax
+   //Qm | rj,prmp | Cmax
+   //Pm || sum Cj
+   //Qm | prmp | sum Cj 
+   //Qm | prmp | Lmax
+   //F2 || Cmax
+   //F2 | block | Cmax 
+   //J2 || Cmax
+   //O2 || Cmax 
+   // Om | prmp | Cmax
+   // Om | prmp | Lmax
+   //Om | rj,pij = 1 | Cmax
   // matroids
   polymatroid_intersection [label="polymatroid intersection"];
   polymatroid_optimization [label="polymatroid optimization"];
