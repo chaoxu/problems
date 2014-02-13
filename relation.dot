@@ -26,14 +26,17 @@ digraph {
   max_flow_int [label="maximum flow with integer weights"];
   submodular_min [label="submodular minimization"];
   symmetric_submodular_min [label="symmetric submodular minimization"];
+
   
   submodular_flow -> degree_constrained_k_edge_connected_orientation;
   degree_constrained_k_edge_connected_orientation -> k_edge_connected_orientation;
   degree_constrained_k_edge_connected_orientation -> degree_constrained_orientation;
   submodular_flow -> min_cost_max_flow;
-  submodular_min -> symmetric_submodular_min;
+  submodular_min -> symmetric_submodular_function_hereditary;
   submodular_min -> directed_min_cut;
-  symmetric_submodular_min -> min_cut;
+  symmetric_submodular_function_hereditary -> symmetric_submodular_min;
+  symmetric_submodular_min -> hypergraph_min_cut;
+  hypergraph_min_cut -> min_cut;
   min_cost_multi_commodity_transshipment -> min_cost_trans;
   min_cost_multi_commodity_transshipment -> all_pairs_shortest_path;
   min_cost_trans -> max_flow;
@@ -54,6 +57,10 @@ digraph {
   degree_constrained_orientation -> eulerian_orientation;
   min_cost_perfect_matching -> weighted_matching;
   weighted_matching -> weighted_bipartite_matching;
+  
+  degree_constrained_subgraphs -> b_matching;
+  b_matching-> bipartite_b_matching;
+  bipartite_b_matching->weighted_bipartite_matching;
   
   min_cost_flow -> shortest_s_t_cycle;
   

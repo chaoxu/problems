@@ -4,7 +4,7 @@ title: Symmetric Submodular Minimization
 
 # Problem
 
-Let $f:2^V\to \mathbb{R}$ be a submodular function, find $S$ such that
+Let $f:2^V\to \mathbb{R}$ be a symmetric submodular function,
 
 \begin{align}
 \text{Minimize:} & f(S) \\
@@ -14,7 +14,7 @@ Let $f:2^V\to \mathbb{R}$ be a submodular function, find $S$ such that
 # Algorithms
 
 ## Queyranne’s algorithm
-- $O(n^3)$ time.
+- $O(n^3)$ value oracle calls.
 
 # References
 

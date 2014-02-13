@@ -1,0 +1,1 @@
+Let $\mathcal{I} = 2^V$.
