@@ -1,8 +1,17 @@
 digraph {
+
   // weakly polynomial
-  convex_programming -> linear_programming;
-  lp_type -> linear_programming;
-  violator_space -> lp_type;
+  semidefinite_programming [label="Semidefinite Programming"];
+  second_order_cone_programming [label="Second-order cone programming "];
+  quadratic_programming [label="Quadratic Programming"];
+  convex_programming [label="Convex Programming"];
+  quasiconvex_programming [label="Quasiconvex Programming"];
+  linear_programming [label="linear programming"];
+  violator_space [label="Violator Space"];
+  lp_type [label="LP-type"];
+
+  quasiconvex_programming -> convex_programming -> semidefinite_programming -> second_order_cone_programming -> quadratic_programming -> linear_programming;
+  violator_space -> lp_type -> linear_programming;
   // optimization problems
   min_cost_multi_commodity_transshipment [label="minimum cost multi-commodity transshipment"];
   max_flow [label="maximum flow"];
@@ -18,7 +27,7 @@ digraph {
 
   submodular_flow [label="submodular flow"];
   polymatroid_intersection [label="polymatroid intersection"];
-  linear_programming [label="linear programming"];
+  
   all_pairs_shortest_path [label="all pairs shortest path"];
   min_cost_flow [label="minimum cost flow"];
   min_cost_trans [label="minimum cost transshipment"];
@@ -26,16 +35,20 @@ digraph {
   max_flow_int [label="maximum flow with integer weights"];
   submodular_min [label="submodular minimization"];
   symmetric_submodular_min [label="symmetric submodular minimization"];
+  symmetric_submodular_function_hereditary [label="symmetric submodular minimization over hereditary system"]
+  hypergraph_min_cut [label="hypergraph global min cut"];
+  element_connectivity [label="element connectivity"];
 
-  
+
   submodular_flow -> degree_constrained_k_edge_connected_orientation;
   degree_constrained_k_edge_connected_orientation -> k_edge_connected_orientation;
   degree_constrained_k_edge_connected_orientation -> degree_constrained_orientation;
   submodular_flow -> min_cost_max_flow;
-  submodular_min -> symmetric_submodular_function_hereditary;
+  linear_programming -> submodular_min -> symmetric_submodular_function_hereditary;
   submodular_min -> directed_min_cut;
   symmetric_submodular_function_hereditary -> symmetric_submodular_min;
   symmetric_submodular_min -> hypergraph_min_cut;
+  symmetric_submodular_min -> element_connectivity;
   hypergraph_min_cut -> min_cut;
   min_cost_multi_commodity_transshipment -> min_cost_trans;
   min_cost_multi_commodity_transshipment -> all_pairs_shortest_path;
@@ -97,7 +110,7 @@ digraph {
   matroid_intersection -> matroid_optimization -> minimum_spanning_tree; 
   matroid_intersection -> weighted_bipartite_matching;
   matroid_intersection -> rooted_k_edge_connection;
-  matriod_intersection -> matriod_union_independence_oracle;
+  matroid_intersection -> matriod_union_independence_oracle;
   matriod_union_independence_oracle -> matriod_partition -> forest_decomposition;
   matriod_partition->maximum_density_subgraph;
   rooted_k_edge_connection -> minimum_spanning_arborescence;
