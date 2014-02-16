@@ -1,16 +1,20 @@
 digraph {
-
   // weakly polynomial
   semidefinite_programming [label="Semidefinite Programming"];
   second_order_cone_programming [label="Second-order cone programming "];
   quadratic_programming [label="Quadratic Programming"];
   convex_programming [label="Convex Programming"];
+  geometric_programming [label="Geometric Programming"];
   quasiconvex_programming [label="Quasiconvex Programming"];
   linear_programming [label="linear programming"];
+  ILP_TUM [label="ILP over TUM"];
+  ILP_TDI [label="ILP with TDI"];
   violator_space [label="Violator Space"];
   lp_type [label="LP-type"];
 
+  linear_programming -> ILP_TDI -> ILP_TUM;
   quasiconvex_programming -> convex_programming -> semidefinite_programming -> second_order_cone_programming -> quadratic_programming -> linear_programming;
+  convex_programming -> geometric_programming;
   violator_space -> lp_type -> linear_programming;
   // optimization problems
   min_cost_multi_commodity_transshipment [label="minimum cost multi-commodity transshipment"];
@@ -24,6 +28,11 @@ digraph {
   min_cost_max_bipartite_matching [label="minimum cost maximum weight bipartite matching"];
   weighted_matching [label="maximum weight matching"];
   min_cost_perfect_matching [label="minimum cost perfect matching"];
+  min_size_bipartite_vertex_cover [label="minimum size bipartite vertex cover"];
+  stable_matching [label="stabel bipartite matching"];
+  max_weight_stable_matching [label="max weight stable bipartite matching"];
+  max_weight_stable_matching -> stable_matching;
+  capacited_bipartite_matching [label="capacited bipartite matching"];
 
   submodular_flow [label="submodular flow"];
   polymatroid_intersection [label="polymatroid intersection"];
@@ -38,7 +47,6 @@ digraph {
   symmetric_submodular_function_hereditary [label="symmetric submodular minimization over hereditary system"]
   hypergraph_min_cut [label="hypergraph global min cut"];
   element_connectivity [label="element connectivity"];
-
 
   submodular_flow -> degree_constrained_k_edge_connected_orientation;
   degree_constrained_k_edge_connected_orientation -> k_edge_connected_orientation;
@@ -56,6 +64,7 @@ digraph {
   max_flow -> max_flow_int;
   min_cost_max_flow -> weighted_bipartite_matching;
   weighted_bipartite_matching -> bipartite_matching;
+  capacited_bipartite_matching -> bipartite_matching;
   max_flow_int -> bipartite_matching;
   min_cost_max_flow -> max_flow;
   min_cost_trans  -> min_cost_flow;
@@ -72,9 +81,17 @@ digraph {
   weighted_matching -> weighted_bipartite_matching;
   
   degree_constrained_subgraphs -> b_matching;
-  b_matching-> bipartite_b_matching;
+  capacited_b_matching -> b_matching -> bipartite_b_matching;
   bipartite_b_matching->weighted_bipartite_matching;
-  
+  optimization_incidence_matrix_undirected [label="optimization on incidence matrix(undirected)"]
+  optimization_incidence_matrix_directed [label="optimization on incidence matrix(directed)"]
+  optimization_incidence_matrix_bidirected [label="optimization on incidence matrix(bidirected)"]
+  optimization_incidence_matrix_bidirected -> optimization_incidence_matrix_undirected;
+  optimization_incidence_matrix_bidirected -> optimization_incidence_matrix_directed;
+  optimization_incidence_matrix_undirected -> capacited_b_matching;
+  ILP_TDI -> optimization_incidence_matrix_bidirected;
+  optimization_incidence_matrix_directed -> min_cost_trans;
+
   min_cost_flow -> shortest_s_t_cycle;
   
   // scheduling
