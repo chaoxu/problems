@@ -1,5 +1,5 @@
 ---
-title: Shortest conservative weighted path between two vertices
+title: Shortest odd conservative weighted path between two vertices
 tags: Graph
 ---
 
