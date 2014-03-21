@@ -9,10 +9,17 @@ digraph {
   linear_programming [label="linear programming"];
   ILP_TUM [label="ILP over TUM"];
   ILP_TDI [label="ILP with TDI"];
+  ILP_nearly_TUM[label="ILP with Nearly TUM"];
   violator_space [label="Violator Space"];
   lp_type [label="LP-type"];
-
+  
+  independent_arc_cover_partition [label="Independent Arc Cover Partition"];
+  ILP_nearly_TUM->independent_arc_cover_partition;
+  max_weight_independent_set_interval_graph [label="Maximum weight independent set interval graph"];
+  max_independent_set_interval_graph [label="Maximum independent set interval graph"];
   linear_programming -> ILP_TDI -> ILP_TUM;
+  linear_programming -> ILP_nearly_TUM -> ILP_TUM;
+  ILP_TUM->max_weight_independent_set_interval_graph->max_independent_set_interval_graph;
   quasiconvex_programming -> convex_programming -> semidefinite_programming -> second_order_cone_programming -> quadratic_programming -> linear_programming;
   convex_programming -> geometric_programming;
   violator_space -> lp_type -> linear_programming;
@@ -180,14 +187,26 @@ digraph {
   cyclic_longest_common_subsequence -> longest_common_subsequence -> longest_increasing_subsequence
   longest_common_subsequence -> shortest_common_supersequence;
   
+  longest_palindromic_substring;
+  minimum_palindromic_factorization;
+
   comparison_sort -> integer_sort;
 
+  max_clique_perfect_graph [label="maximum clique on perfect graph"];
+  graph_coloring_perfect_graph [label="graph coloring on perfect graph"];
+
   stable_roommates_problem;
-  tree_isomorphism;
-  k_core_number;
+  tree_isomorphism [label="tree isomorphism"];
+  k_core_number [label="k-core number"];
+  shortest_even_cycle [label="shortest_even_cycle"];
   // Done
   // sequential knapsack
   
+  circular_arc_maximum_independent_set;
+  circular_arc_minimum_clique_cover;
+  circular_arc_minimum_dominating_set;
+  proper_circular_arc_maximum_weight_clique;
+  proper_circular_arc_coloring;
   // Todo
   // Modular decomposition http://en.wikipedia.org/wiki/Modular_decomposition
   // reconize total unimodularity 

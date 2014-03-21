@@ -3,7 +3,7 @@ title: Minimum Spanning Arborescence
 ---
 
 # Problem
-Let $D=(V,A)$ be a connected graph, $r$ be a specified vertex. $w:A\to \R$. We want to find a $r$-arborescence $R$ with minimum total weight.
+Let $D=(V,A)$ be a connected graph of $n$ vertices and $m$ edges. $r$ be a specified vertex. $w:A\to \R$. We want to find a $r$-arborescence $R$ with minimum total weight.
 
 \begin{align}
 \text{Minimize:} & \sum_{a\in R} w(a) x_a\\
@@ -13,4 +13,5 @@ Let $D=(V,A)$ be a connected graph, $r$ be a specified vertex. $w:A\to \R$. We w
 
 # Algorithms
 
-http://www.dti.unimi.it/~righini/Didattica/ComplementiRicercaOperativa/MaterialeCRO/Trees.pdf
+- $O(m+n\log n)$ Edmonds' algorithm with Gabow et. al.'s implementation
+H. N. Gabow, Z. Galil, T. Spencer, and R. E. Tarjan, “Efficient algorithms for finding minimum spanning trees in undirected and directed graphs,” Combinatorica 6 (1986), 109-122.
