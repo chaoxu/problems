@@ -207,6 +207,10 @@ digraph {
   circular_arc_minimum_dominating_set;
   proper_circular_arc_maximum_weight_clique;
   proper_circular_arc_coloring;
+
+  selection_column_sorted_matrix;
+  selection_sorted_matrix;
+  search_sorted_matrx;
   // Todo
   // Modular decomposition http://en.wikipedia.org/wiki/Modular_decomposition
   // reconize total unimodularity 
