@@ -7,3 +7,5 @@ files/
 .DS_Store
 drafts/
 mathdoc.hs
+.cabal-sandbox/
+dist/

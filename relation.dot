@@ -26,6 +26,7 @@ digraph {
   // optimization problems
   min_cost_multi_commodity_transshipment [label="minimum cost multi-commodity transshipment"];
   max_flow [label="maximum flow"];
+
   weighted_bipartite_matching [label="max weight bipartite matching"];
   bipartite_matching [label="cardinality bipartite matching"];
   shortest_path_nonneg_weight [label="non-negative weighted shortest path"];
@@ -39,6 +40,9 @@ digraph {
   max_weight_stable_matching [label="max weight stable bipartite matching"];
   max_weight_stable_matching -> stable_matching;
   capacited_bipartite_matching [label="capacited bipartite matching"];
+
+  closure_problem [label="closure problem"]
+  max_flow->closure_problem;
 
   submodular_flow [label="submodular flow"];
   polymatroid_intersection [label="polymatroid intersection"];
