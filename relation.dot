@@ -36,9 +36,11 @@ digraph {
   weighted_matching [label="maximum weight matching"];
   min_cost_perfect_matching [label="minimum cost perfect matching"];
   min_size_bipartite_vertex_cover [label="minimum size bipartite vertex cover"];
-  stable_matching [label="stabel bipartite matching"];
+  stable_marriage [label="stable marriage problem"];
+  stable_roommates [label="stable roommates problem"]
+  stable_roommates -> stable_marriage;
   max_weight_stable_matching [label="max weight stable bipartite matching"];
-  max_weight_stable_matching -> stable_matching;
+  max_weight_stable_matching -> stable_marriage;
   capacited_bipartite_matching [label="capacited bipartite matching"];
 
   closure_problem [label="closure problem"]
@@ -199,7 +201,7 @@ digraph {
   max_clique_perfect_graph [label="maximum clique on perfect graph"];
   graph_coloring_perfect_graph [label="graph coloring on perfect graph"];
 
-  stable_roommates_problem;
+  
   tree_isomorphism [label="tree isomorphism"];
   k_core_number [label="k-core number"];
   shortest_even_cycle [label="shortest_even_cycle"];
