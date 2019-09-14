@@ -1,7 +1,451 @@
----
-title: Index
----
- 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Problems">
+    <meta name="author" content="Chao Xu">
+    <meta property="og:title" content="Index" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Problems" />
+    <meta property="article:tag" content="" />
+    <title>Index</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.css" integrity="sha384-BdGj8xC2eZkQaxoQ8nSLefg4AV4/AwB3Fj+8SUSo7pnKP6Eoy18liIKTPn9oBYNG" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/katex.min.js" integrity="sha384-JiKN5O8x9Hhs/UE5cT5AAJqieYlOZbGT3CHws/y97o3ty4R7/O5poG9F3JoiOYw1" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <!-- <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.0/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script> 
+    -->
+    <script defer>
+      function render_katex_math(){
+        const macros={
+                      "\\C":"\\mathbb{C}",
+                      "\\F":"\\mathbb{F}",
+                      "\\e": "\\varepsilon",
+                      "\\eps": "\\varepsilon",
+                      "\\mex": "\\mathop{\\operatorname{mex}}",
+                      "\\lcm": "\\mathop{\\operatorname{lcm}}",
+                      "\\dist": "\\mathop{\\operatorname{dist}}",
+                      "\\bigtriangleright": "{\\mathop{\\Large \\triangleright}}",
+                      "\\bigtriangleleft": "{\\mathop{\\Large \\triangleleft}}",
+                      '\\set':'\\left\\{ #1 \\right\\}',
+                      '\\floor':'\\left\\lfloor #1 \\right\\rfloor',
+                      '\\ceil':'\\left\\lceil #1 \\right\\rceil',
+                      '\\abs':'\\left\\| #1 \\right\\|'
+                      };
+        const mathElements = document.getElementsByClassName("math");
+        for (var i = 0; i < mathElements.length; i++) {
+                  var texText = mathElements[i].firstChild;
+                  if (mathElements[i].tagName == "SPAN") {
+                   katex.render(texText.data, mathElements[i], 
+                    { displayMode: mathElements[i].classList.contains("display"), throwOnError: false, macros:macros}
+                  );
+                }
+        };
+      };
+      window.onload = render_katex_math;
+    </script>
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+  <link rel="stylesheet" href="/css/default.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/blog.css" crossorigin="anonymous">
+  </head>
+  <body>
+    <header class="hide-on-print">
+        <div id="site-title">
+            <a href="/">Problems</a>
+        </div>
+    </header>
+    <!--<nav class="hide-on-print">
+      <ul>
+        <li><a href="/">Home</a></li>
+      </ul>
+    </nav>-->
+    <main>
+      <article>
+        <h1 id="article-title">Index</h1>
+         
 <table class="postindex">
-$posts$
+<tr>
+    <td><a href="/ILP-nearly-TUM.html"><cite>ILP nearly TUM</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/all-pairs-shortest-path.html"><cite>All-Pair Shortest Path</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/all-pairs-widest-path.html"><cite>All-Pairs Widest Path</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/bipartite_matching.html"><cite>Cardinality bipartite matching</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/capacited_bipartite_matching.html"><cite>capacited bipartite matching</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/circular-arc-maximum-independent-set.html"><cite>Circular arc maximum independent set</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/circular-arc-minimum-clique-cover.html"><cite>Circular arc minimum clique cover</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/circular-arc-minimum-dominating-set.html"><cite>Circular arc minimum dominating set</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/closure-problem.html"><cite>Closure problem</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/convex-programming.html"><cite>Convex Programming</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/count-paths-dag.html"><cite>Number of paths from <span class="math inline">s</span> to <span class="math inline">t</span> in a DAG</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/cyclic-alignment.html"><cite>Cyclic Alignment</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/cyclic-string-equivalence.html"><cite>Cyclic String Equivalence</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/degree-constrained-k-edge-connected-orientation.html"><cite>Degree Constrained <span class="math inline">k</span>-Edge-Connected Orientation</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/degree-constrained-orientation.html"><cite>Degree Constrained Orientation</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/directed-min-cut.html"><cite>Directed Global Minimum Cut</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/dynamic-prefix-sum.html"><cite>Dynamic Prefix Sum</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/edge-connectivity.html"><cite>Edge Connectivity</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/eulerian-orientation.html"><cite>Eulerian Orientation</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/exact-string-matching-with-dont-cares.html"><cite>Exact String Matching With Don’t Cares</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/exact-string-matching.html"><cite>Exact String Matching</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/f2-makespan-block.html"><cite>2 Machine Flow Shop Makespan with block</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/f2-makespan.html"><cite>2 Machine Flow Shop Makespan</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/forest-decomposition.html"><cite>Forest Decomposition</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/generic-shortest-path-dag.html"><cite>Generic Shortest Path for DAGs</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/generic-shortest-path-superior.html"><cite>Generic Shortest Path Superior</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/h-index.html"><cite>The <span class="math inline">h</span>-index problem</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/hypergraph-min-cut.html"><cite>Hypergraph Min Cut</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/independent-arc-cover-partition.html"><cite>Independent arc cover partition</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/j2-makespan.html"><cite>2 Machine Job Shop Makespan</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/k-connected-orientation.html"><cite><span class="math inline">k</span>-Connected Orientation</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/linear-programming.html"><cite>Linear Programming</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/longest-palindromic-substring.html"><cite>Longest Palindromic Substring</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/lp-type.html"><cite>LP-type problem</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/matriod-partition.html"><cite>Matriod Partition</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/matriod-union-independence-oracle.html"><cite>Matriod Union Indpendence Oracle</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/matroid-intersection.html"><cite>Matroid Intersection</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/matroid-optimization.html"><cite>Matriod Optimization</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/max-density-subgraph.html"><cite>Maximum Density Subgraph</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/max-flow-int.html"><cite>Maximum <span class="math inline">s-t</span>-flow with Integer Weights</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/max-flow.html"><cite>Maximum <span class="math inline">s-t</span> flow</cite></a></td>
+    <td class="right">Graph</td>
+</tr>
+<tr>
+    <td><a href="/meet-of-two-partitions.html"><cite>Meet of two partitions</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/min-cost-flow.html"><cite>Minimum Cost Flow</cite></a></td>
+    <td class="right">Graph</td>
+</tr>
+<tr>
+    <td><a href="/min-cost-max-flow.html"><cite>Minimum Cost Maximum <span class="math inline">s-t</span> Flow</cite></a></td>
+    <td class="right">Graph</td>
+</tr>
+<tr>
+    <td><a href="/min-cost-multi-commodity-transshipment.html"><cite>Minimum cost multi-commodity transshipment</cite></a></td>
+    <td class="right">Graph</td>
+</tr>
+<tr>
+    <td><a href="/min-cost-t-join.html"><cite>Minimum cost T-join</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/min-cost-trans.html"><cite>Minimum cost transshipment</cite></a></td>
+    <td class="right">Graph</td>
+</tr>
+<tr>
+    <td><a href="/min-cut.html"><cite>Global Minimum Cut</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/minimum-palindromic-factorization.html"><cite>Minimum Palindromic Factorization</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/minimum-spanning-arborescence.html"><cite>Minimum Spanning Arborescence</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/minimum-spanning-tree.html"><cite>Minimum Spanning Tree</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/multiple-machine-diff-speed-makespan-with-preemptions.html"><cite>Different Speed Parallel Machines Makespan with Preemptions</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/multiple-machine-diff-speed-max-lateness.html"><cite>Multiple Machine Different Speed Maximum Lateness</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/multiple-machine-diff-speed-total-completion-time-preemption.html"><cite>Multiple Machine Different Speed Total Completion Time with Preemptions</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/multiple-machine-makespan-preemption.html"><cite>Multiple Machine Makespan with Preemptions</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/multiple-machine-open-shop-lateness-preemption.html"><cite>Multiple Machine Open Shop Lateness with Preemptions</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/multiple-machine-open-shop-makespan-preemption.html"><cite>Multiple Machine Open Shop Makespan with Preemptions</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/multiple-machine-total-completion-time.html"><cite>Multiple Machine Total Completion Time</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/o2-makespan.html"><cite>2 Machine Open Shop Makespan</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/optimization-incidence-matrix-undirected.html"><cite>Optimization on Incidence Matrix(undirected)</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/path-sum.html"><cite>Path Sums</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/proper-circular-arc-coloring.html"><cite>Proper circular arc graph coloring</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/proper-circular-arc-maximum-weight-clique.html"><cite>Proper Circular Arc Maximum Weight Clique</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/range-minimum-query.html"><cite>Range Minimum Query</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/regular-expression-matching.html"><cite>Regular expression matching</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/regular-expression-substring-matching.html"><cite>Regular expression substring matching</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/regular_bipartite_matching.html"><cite>Regular bipartite graph matching</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/rooted-k-edge-connection.html"><cite>Rooted <span class="math inline">k</span>-edge-connection problem</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/search-sorted-matrix.html"><cite>Search in sorted matrix</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/selection-column-sorted-matrix.html"><cite>Selection in column sorted matrix</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/selection-sorted-matrix.html"><cite>Selection in sorted matrix</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/sequential-knapsack.html"><cite>Sequential Knapsack</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/shortest-cycle.html"><cite>Shortest Cycle</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/shortest-odd-path.html"><cite>Shortest odd conservative weighted path between two vertices</cite></a></td>
+    <td class="right">Graph</td>
+</tr>
+<tr>
+    <td><a href="/shortest-path-nonneg-weight.html"><cite>Shortest non-negative weighted path between two vertices</cite></a></td>
+    <td class="right">Graph</td>
+</tr>
+<tr>
+    <td><a href="/shortest-path-weight.html"><cite>Shortest odd conservative weighted path between two vertices</cite></a></td>
+    <td class="right">Graph</td>
+</tr>
+<tr>
+    <td><a href="/shortest-path.html"><cite>Shortest path between two vertices</cite></a></td>
+    <td class="right">Graph</td>
+</tr>
+<tr>
+    <td><a href="/shortest-s-t-cycle.html"><cite>Shortest <span class="math inline">s</span>-<span class="math inline">t</span>-Cycle</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/single-machine-min-max-lateness.html"><cite>Single Machine Maximum Lateness</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/single-machine-min-tardy.html"><cite>Single Machine Minimum Tardy Jobs</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/single-machine-preemptive-total-completion-time.html"><cite>Single Machine Preemptive Total Completion Time</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/single-machine-total-weighted-completion-time.html"><cite>Single Machine Total Weighted Completion Time</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/stable-marriage.html"><cite>Stable Marriage Problem</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/stable-roommates.html"><cite>Stable Roommate Problem</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/submodular-flow.html"><cite>Submodular Flow</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/submodular-min.html"><cite>Submodular Minimization</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/symmetric-submodular-function-hereditary.html"><cite>Symmetric Submodular Function Minimization Under Hereditary Family Constraints</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/symmetric-submodular-min.html"><cite>Symmetric Submodular Minimization</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/undirected-widest-path.html"><cite>Undirected Widest Path</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/violator-space.html"><cite>Violator Space Programming</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/weighted-h-index.html"><cite>The weighted <span class="math inline">h</span>-index problem</cite></a></td>
+    <td class="right"></td>
+</tr>
+<tr>
+    <td><a href="/widest-path.html"><cite>Widest Path</cite></a></td>
+    <td class="right"></td>
+</tr>
+
 </table> 
+
+      </article>
+    </main>
+    <!--
+    <footer class="hide-on-print">© 2010 - <time><script>document.write(new Date().getFullYear())</script></time> <a href="https://chaoxuprime.com" rel="author">Chao Xu</a>. Licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+    </footer>
+    -->
+  </body>
+</html>
