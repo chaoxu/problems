@@ -1,4 +1,8 @@
-problems
-========
+---
+title: About
+---
 
-Check out the [demo](http://problems.site44.com/).
+Some notes on algorithmic problems.
+Many of them are placeholders.
+
+I'm using it as a database for now. Eventually it will be moved to somewhere better. 

@@ -1,1 +1,0 @@
-See the equivalence that all LP-type problems are acyclic violator spaces.

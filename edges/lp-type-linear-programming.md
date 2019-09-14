@@ -1,1 +1,0 @@
-$H$ is the set of constraints, $w(G)$ be the optimal value defined by $G$.

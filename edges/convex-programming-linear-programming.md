@@ -1,1 +1,0 @@
-$f,g_1,\ldots,g_m$ are all linear functions.

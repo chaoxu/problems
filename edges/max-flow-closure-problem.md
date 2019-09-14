@@ -1,1 +1,0 @@
-Add vertex $s$ and $t$, such that for each vertex $v\in V$ such that $w(v)>0$, add arc $sv$ with capacity $w(v)$. Otherwise, add an edge $vt$ with capacity $-w(v)$. All other edges in $D$ has capacity $\infty$. The minimum cut has the required property.

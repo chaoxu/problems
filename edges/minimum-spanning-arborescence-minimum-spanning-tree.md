@@ -1,1 +1,0 @@
-Trivial directed to undirected mapping.

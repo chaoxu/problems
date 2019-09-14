@@ -1,1 +1,0 @@
-Let the semiring be $(\mathbb{N},+,\times,0,1)$.

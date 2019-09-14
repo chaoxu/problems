@@ -1,5 +1,6 @@
 _site/
 _cache/
+.stack-work/
 *.hi
 *.o
 site
@@ -9,3 +10,4 @@ drafts/
 mathdoc.hs
 .cabal-sandbox/
 dist/
+*.lock

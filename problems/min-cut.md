@@ -3,7 +3,7 @@ title: Global Minimum Cut
 ---
 
 # Problem
-Let $G=(V,E)$ be a graph and weight function $w:E\to \mathbb{R^+}$, find the cut of minimum weight
+Let $G=(V,E)$ be a graph and weight function $w:E\to \mathbb{R^+}$, find the cut of minimum weight.
 
 # Algorithms
 
